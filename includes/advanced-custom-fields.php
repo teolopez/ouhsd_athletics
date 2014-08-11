@@ -1,0 +1,665 @@
+<?php 
+
+/*=========================================================
+=            Advanced Custom Fields for Plugin            =
+=========================================================*/
+
+
+/**
+*
+* Set Variables
+*
+**/
+
+/* Variables set to find ID by slug/path */
+$pageBoys = ouhsd_athletics_teams_get_ID_by_slug('athletics/boys-teams');
+$pageGirls = ouhsd_athletics_teams_get_ID_by_slug('athletics/girls-teams');
+
+
+/**
+*
+* Check if Plugin is activated, if so apply rules
+*
+**/
+
+if ( is_plugin_active('advanced-custom-fields/acf.php') ) {
+/*==========  NEW  ==========*/
+
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_team-rosters',
+		'title' => 'Team Rosters',
+		'fields' => array (
+			array (
+				'key' => 'field_537e71196bd9b',
+				'label' => 'Coach Roster',
+				'name' => '',
+				'type' => 'tab',
+			),
+			array (
+				'key' => 'field_537e7164a0a47',
+				'label' => 'Coach Rosters',
+				'name' => 'coach_rosters',
+				'type' => 'repeater',
+				'instructions' => 'Choose the level of a team in the 1st column, and add the coaches for that team level in the second column.',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_537e7164a0a48',
+						'label' => 'Team Level',
+						'name' => 'team_level',
+						'type' => 'radio',
+						'required' => 1,
+						'column_width' => '',
+						'choices' => array (
+							'varsity' => 'Varisty',
+							'jv' => 'JV',
+							'frosh_soph' => 'Frosh/Soph',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => '',
+						'layout' => 'vertical',
+					),
+					array (
+						'key' => 'field_537e7164a0a49',
+						'label' => 'Coaches',
+						'name' => 'coaches',
+						'type' => 'repeater',
+						'column_width' => '',
+						'sub_fields' => array (
+							array (
+								'key' => 'field_537e7164a0a4a',
+								'label' => 'Photo',
+								'name' => 'player_photo',
+								'type' => 'image',
+								'column_width' => '',
+								'save_format' => 'object',
+								'preview_size' => 'thumbnail',
+								'library' => 'all',
+							),
+							array (
+								'key' => 'field_537e7164a0a4b',
+								'label' => 'Name',
+								'name' => 'player_name',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_5384c6c8d237f',
+								'label' => 'Bio',
+								'name' => 'coach_bio',
+								'type' => 'textarea',
+								'instructions' => 'Insert quick bio.',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => 'Insert quick bio.',
+								'maxlength' => 240,
+								'rows' => '',
+								'formatting' => 'br',
+							),
+						),
+						'row_min' => 1,
+						'row_limit' => '',
+						'layout' => 'table',
+						'button_label' => 'Add Coach',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => 3,
+				'layout' => 'table',
+				'button_label' => 'Add Team',
+			),
+			array (
+				'key' => 'field_5384c6001005a',
+				'label' => 'Team Roster',
+				'name' => '',
+				'type' => 'tab',
+			),
+			array (
+				'key' => 'field_537e712f6bd9c',
+				'label' => 'Team Rosters',
+				'name' => 'team_rosters',
+				'type' => 'repeater',
+				'instructions' => 'Choose the level of a team in the 1st column, and add the players for that team level in the second column.',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_537e712f6bd9d',
+						'label' => 'Team Level',
+						'name' => 'team_level',
+						'type' => 'radio',
+						'required' => 1,
+						'column_width' => '',
+						'choices' => array (
+							'varsity' => 'Varisty',
+							'jv' => 'JV',
+							'frosh_soph' => 'Frosh/Soph',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => '',
+						'layout' => 'vertical',
+					),
+					array (
+						'key' => 'field_537e712f6bd9e',
+						'label' => 'Players',
+						'name' => 'players',
+						'type' => 'repeater',
+						'column_width' => '',
+						'sub_fields' => array (
+							array (
+								'key' => 'field_537e712f6bd9f',
+								'label' => 'Photo',
+								'name' => 'player_photo',
+								'type' => 'image',
+								'column_width' => '',
+								'save_format' => 'object',
+								'preview_size' => 'thumbnail',
+								'library' => 'all',
+							),
+							array (
+								'key' => 'field_537e712f6bda0',
+								'label' => 'Name',
+								'name' => 'player_name',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_537e712f6bda1',
+								'label' => 'MaxPreps Link',
+								'name' => 'maxpreps_link',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => 'http://',
+								'append' => '',
+								'formatting' => 'none',
+								'maxlength' => '',
+							),
+						),
+						'row_min' => 1,
+						'row_limit' => '',
+						'layout' => 'table',
+						'button_label' => 'Add Player',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => 3,
+				'layout' => 'table',
+				'button_label' => 'Add Team',
+			),
+			array (
+				'key' => 'field_53b471d078bae',
+				'label' => 'Team Schedule',
+				'name' => '',
+				'type' => 'tab',
+			),
+			array (
+				'key' => 'field_53b471ed78baf',
+				'label' => 'Team Schedule',
+				'name' => 'team_schedule',
+				'type' => 'repeater',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_53b471fa78bb0',
+						'label' => 'Team Level',
+						'name' => 'team_level',
+						'type' => 'radio',
+						'column_width' => '',
+						'choices' => array (
+							'varsity' => 'Varisty',
+							'jv' => 'JV',
+							'frosh_soph' => 'Frosh/Soph',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => '',
+						'layout' => 'vertical',
+					),
+					array (
+						'key' => 'field_53b4721c78bb1',
+						'label' => 'Team Schedule & Results',
+						'name' => 'team_schedule_results',
+						'type' => 'repeater',
+						'column_width' => '',
+						'sub_fields' => array (
+							array (
+								'key' => 'field_53b4723a78bb2',
+								'label' => 'Date',
+								'name' => 'team_schedule_date',
+								'type' => 'date_picker',
+								'column_width' => '',
+								'date_format' => 'yymmdd',
+								'display_format' => 'dd/mm/yy',
+								'first_day' => 1,
+							),
+							array (
+								'key' => 'field_53b4724a78bb3',
+								'label' => 'Opponent',
+								'name' => 'team_schedule_opponent',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_53b4725878bb4',
+								'label' => 'Location',
+								'name' => 'team_schedule_location',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_53b4725e78bb5',
+								'label' => 'Time',
+								'name' => 'team_schedule_time',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+							array (
+								'key' => 'field_53b4726678bb6',
+								'label' => 'Results',
+								'name' => 'team_schedule_results',
+								'type' => 'text',
+								'column_width' => '',
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'formatting' => 'html',
+								'maxlength' => '',
+							),
+						),
+						'row_min' => '',
+						'row_limit' => '',
+						'layout' => 'table',
+						'button_label' => 'Add Row',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Row',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_parent',
+					'operator' => '==',
+					'value' => $pageBoys,
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'page_parent',
+					'operator' => '==',
+					'value' => $pageGirls,
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+/*==========  OLD  ==========*/
+
+
+	// if(function_exists("register_field_group"))
+	// {
+	// 	register_field_group(array (
+	// 		'id' => 'acf_team-rosters',
+	// 		'title' => 'Team Rosters',
+	// 		'fields' => array (
+	// 			array (
+	// 				'key' => 'field_537e71196bd9b',
+	// 				'label' => 'Coach Roster',
+	// 				'name' => '',
+	// 				'type' => 'tab',
+	// 			),
+	// 			array (
+	// 				'key' => 'field_537e7164a0a47',
+	// 				'label' => 'Coach Rosters',
+	// 				'name' => 'coach_rosters',
+	// 				'type' => 'repeater',
+	// 				'instructions' => 'Choose the level of a team in the 1st column, and add the coaches for that team level in the second column.',
+	// 				'sub_fields' => array (
+	// 					array (
+	// 						'key' => 'field_537e7164a0a48',
+	// 						'label' => 'Team Level',
+	// 						'name' => 'team_level',
+	// 						'type' => 'radio',
+	// 						'required' => 1,
+	// 						'column_width' => '',
+	// 						'choices' => array (
+	// 							'varsity' => 'Varisty',
+	// 							'jv' => 'JV',
+	// 							'frosh_soph' => 'Frosh/Soph',
+	// 						),
+	// 						'other_choice' => 0,
+	// 						'save_other_choice' => 0,
+	// 						'default_value' => '',
+	// 						'layout' => 'vertical',
+	// 					),
+	// 					array (
+	// 						'key' => 'field_537e7164a0a49',
+	// 						'label' => 'Coaches',
+	// 						'name' => 'coaches',
+	// 						'type' => 'repeater',
+	// 						'column_width' => '',
+	// 						'sub_fields' => array (
+	// 							array (
+	// 								'key' => 'field_537e7164a0a4a',
+	// 								'label' => 'Photo',
+	// 								'name' => 'player_photo',
+	// 								'type' => 'image',
+	// 								'column_width' => '',
+	// 								'save_format' => 'object',
+	// 								'preview_size' => 'thumbnail',
+	// 								'library' => 'all',
+	// 							),
+	// 							array (
+	// 								'key' => 'field_537e7164a0a4b',
+	// 								'label' => 'Name',
+	// 								'name' => 'player_name',
+	// 								'type' => 'text',
+	// 								'column_width' => '',
+	// 								'default_value' => '',
+	// 								'placeholder' => '',
+	// 								'prepend' => '',
+	// 								'append' => '',
+	// 								'formatting' => 'html',
+	// 								'maxlength' => '',
+	// 							),
+	// 							array (
+	// 								'key' => 'field_5384c6c8d237f',
+	// 								'label' => 'Bio',
+	// 								'name' => 'coach_bio',
+	// 								'type' => 'textarea',
+	// 								'instructions' => 'Insert quick bio.',
+	// 								'column_width' => '',
+	// 								'default_value' => '',
+	// 								'placeholder' => 'Insert quick bio.',
+	// 								'maxlength' => 140,
+	// 								'rows' => '',
+	// 								'formatting' => 'br',
+	// 							),
+	// 						),
+	// 						'row_min' => 1,
+	// 						'row_limit' => '',
+	// 						'layout' => 'table',
+	// 						'button_label' => 'Add Coach',
+	// 					),
+	// 				),
+	// 				'row_min' => '',
+	// 				'row_limit' => 3,
+	// 				'layout' => 'table',
+	// 				'button_label' => 'Add Team',
+	// 			),
+	// 			array (
+	// 				'key' => 'field_5384c6001005a',
+	// 				'label' => 'Team Roster',
+	// 				'name' => '',
+	// 				'type' => 'tab',
+	// 			),
+	// 			array (
+	// 				'key' => 'field_537e712f6bd9c',
+	// 				'label' => 'Team Rosters',
+	// 				'name' => 'team_rosters',
+	// 				'type' => 'repeater',
+	// 				'instructions' => 'Choose the level of a team in the 1st column, and add the players for that team level in the second column.',
+	// 				'sub_fields' => array (
+	// 					array (
+	// 						'key' => 'field_537e712f6bd9d',
+	// 						'label' => 'Team Level',
+	// 						'name' => 'team_level',
+	// 						'type' => 'radio',
+	// 						'required' => 1,
+	// 						'column_width' => '',
+	// 						'choices' => array (
+	// 							'varsity' => 'Varisty',
+	// 							'jv' => 'JV',
+	// 							'frosh_soph' => 'Frosh/Soph',
+	// 						),
+	// 						'other_choice' => 0,
+	// 						'save_other_choice' => 0,
+	// 						'default_value' => '',
+	// 						'layout' => 'vertical',
+	// 					),
+	// 					array (
+	// 						'key' => 'field_537e712f6bd9e',
+	// 						'label' => 'Players',
+	// 						'name' => 'players',
+	// 						'type' => 'repeater',
+	// 						'column_width' => '',
+	// 						'sub_fields' => array (
+	// 							array (
+	// 								'key' => 'field_537e712f6bd9f',
+	// 								'label' => 'Photo',
+	// 								'name' => 'player_photo',
+	// 								'type' => 'image',
+	// 								'column_width' => '',
+	// 								'save_format' => 'object',
+	// 								'preview_size' => 'thumbnail',
+	// 								'library' => 'all',
+	// 							),
+	// 							array (
+	// 								'key' => 'field_537e712f6bda0',
+	// 								'label' => 'Name',
+	// 								'name' => 'player_name',
+	// 								'type' => 'text',
+	// 								'column_width' => '',
+	// 								'default_value' => '',
+	// 								'placeholder' => '',
+	// 								'prepend' => '',
+	// 								'append' => '',
+	// 								'formatting' => 'html',
+	// 								'maxlength' => '',
+	// 							),
+	// 							array (
+	// 								'key' => 'field_537e712f6bda1',
+	// 								'label' => 'MaxPreps Link',
+	// 								'name' => 'maxpreps_link',
+	// 								'type' => 'text',
+	// 								'column_width' => '',
+	// 								'default_value' => '',
+	// 								'placeholder' => '',
+	// 								'prepend' => 'http://',
+	// 								'append' => '',
+	// 								'formatting' => 'none',
+	// 								'maxlength' => '',
+	// 							),
+	// 						),
+	// 						'row_min' => 1,
+	// 						'row_limit' => '',
+	// 						'layout' => 'table',
+	// 						'button_label' => 'Add Player',
+	// 					),
+	// 				),
+	// 				'row_min' => '',
+	// 				'row_limit' => 3,
+	// 				'layout' => 'table',
+	// 				'button_label' => 'Add Team',
+	// 			),
+	// 		),
+	// 		'location' => array (
+	// 			array (
+	// 				array (
+	// 					'param' => 'page_parent',
+	// 					'operator' => '==',
+	// 					'value' => $pageBoys,
+	// 					'order_no' => 0,
+	// 					'group_no' => 0,
+	// 				),
+	// 			),
+	// 			array (
+	// 				array (
+	// 					'param' => 'page_parent',
+	// 					'operator' => '==',
+	// 					'value' => $pageGirls,
+	// 					'order_no' => 0,
+	// 					'group_no' => 1,
+	// 				),
+	// 			),
+	// 		),
+	// 		'options' => array (
+	// 			'position' => 'normal',
+	// 			'layout' => 'no_box',
+	// 			'hide_on_screen' => array (
+	// 			),
+	// 		),
+	// 		'menu_order' => 0,
+	// 	));
+
+	// /*============================================
+	// =            ACF of Team Schedule            =
+	// ============================================*/
+
+	// register_field_group(array (
+	// 		'id' => 'acf_team-schedule',
+	// 		'title' => 'Team Schedule',
+	// 		'fields' => array (
+	// 			array (
+	// 				'key' => 'field_53a05359968c0',
+	// 				'label' => 'Team Schedule',
+	// 				'name' => 'team_schedule',
+	// 				'type' => 'repeater',
+	// 				'sub_fields' => array (
+	// 					array (
+	// 						'key' => 'field_53a05370968c1',
+	// 						'label' => 'Date',
+	// 						'name' => 'team_game_date',
+	// 						'type' => 'date_picker',
+	// 						'column_width' => '',
+	// 						'date_format' => 'yymmdd',
+	// 						'display_format' => 'mm/dd/yy',
+	// 						'first_day' => 1,
+	// 					),
+	// 					array (
+	// 						'key' => 'field_53a05394968c2',
+	// 						'label' => 'Opponent',
+	// 						'name' => 'team_opponent',
+	// 						'type' => 'text',
+	// 						'column_width' => '',
+	// 						'default_value' => '',
+	// 						'placeholder' => '',
+	// 						'prepend' => '',
+	// 						'append' => '',
+	// 						'formatting' => 'html',
+	// 						'maxlength' => '',
+	// 					),
+	// 					array (
+	// 						'key' => 'field_53a053b3968c3',
+	// 						'label' => 'Location',
+	// 						'name' => 'team_game_location',
+	// 						'type' => 'text',
+	// 						'column_width' => '',
+	// 						'default_value' => '',
+	// 						'placeholder' => '',
+	// 						'prepend' => '',
+	// 						'append' => '',
+	// 						'formatting' => 'html',
+	// 						'maxlength' => '',
+	// 					),
+	// 					array (
+	// 						'key' => 'field_53a053c0968c4',
+	// 						'label' => 'Time',
+	// 						'name' => 'team_game_time',
+	// 						'type' => 'text',
+	// 						'column_width' => '',
+	// 						'default_value' => '',
+	// 						'placeholder' => '',
+	// 						'prepend' => '',
+	// 						'append' => '',
+	// 						'formatting' => 'html',
+	// 						'maxlength' => '',
+	// 					),
+	// 					array (
+	// 						'key' => 'field_53a053cc968c5',
+	// 						'label' => 'Results',
+	// 						'name' => 'team_results',
+	// 						'type' => 'text',
+	// 						'column_width' => '',
+	// 						'default_value' => '',
+	// 						'placeholder' => '',
+	// 						'prepend' => '',
+	// 						'append' => '',
+	// 						'formatting' => 'html',
+	// 						'maxlength' => '',
+	// 					),
+	// 				),
+	// 				'row_min' => '',
+	// 				'row_limit' => '',
+	// 				'layout' => 'table',
+	// 				'button_label' => 'Add Row',
+	// 			),
+	// 		),
+	// 	'location' => array (
+	// 		array (
+	// 			array (
+	// 				'param' => 'page_parent',
+	// 				'operator' => '==',
+	// 				'value' => $pageBoys,
+	// 				'order_no' => 0,
+	// 				'group_no' => 0,
+	// 			),
+	// 		),
+	// 		array (
+	// 			array (
+	// 				'param' => 'page_parent',
+	// 				'operator' => '==',
+	// 				'value' => $pageGirls,
+	// 				'order_no' => 0,
+	// 				'group_no' => 1,
+	// 			),
+	// 		),
+	// 	),
+	// 		'options' => array (
+	// 			'position' => 'normal',
+	// 			'layout' => 'default',
+	// 			'hide_on_screen' => array (
+	// 			),
+	// 		),
+	// 		'menu_order' => 0,
+	// 	));
+	// }
+}

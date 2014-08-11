@@ -1,0 +1,11 @@
+.nav-pills>li.active>a {
+	background-color: #eaeaea;
+}
+
+.nav-pills>li.active>a:hover {
+	background-color: #eaeaea;
+}
+
+.table {
+	margin-bottom: 0px;
+}
