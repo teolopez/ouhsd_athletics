@@ -98,7 +98,7 @@ add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
 
 include( plugin_dir_path( __FILE__ ) . '/includes/page-generator.php');
 
-include( plugin_dir_path( __FILE__ ) . '/includes/advanced-custom-fields-pro.php');
+include( plugin_dir_path( __FILE__ ) . '/includes/advanced-custom-fields.php');
 
 
 function tl_footer_tabs_responsive_script() {

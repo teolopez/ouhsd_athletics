@@ -22,7 +22,7 @@ $pageGirls = ouhsd_athletics_teams_get_ID_by_slug('athletics/girls-teams');
 *
 **/
 
-if ( is_plugin_active('advanced-custom-fields/acf.php') ) {
+if ( is_plugin_active('advanced-custom-fields-pro/acf.php') ) {
 /*==========  NEW  ==========*/
 
 if(function_exists("register_field_group"))
