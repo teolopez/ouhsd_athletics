@@ -5,7 +5,7 @@
  * A foundation off of which to build well-documented WordPress plugins that
  * also follow WordPress Coding Standards and PHP best practices.
  *
- * @package   OUHSD_Athletics
+ * @package   OUHSD Athletics
  * @author    Teodoro Lopez <teodoro.lopez@ouhsd.k12.ca.us>
  * @license   GPL-2.0+
  * @link      http://ouhsd.k12.ca.us
@@ -55,6 +55,7 @@ function ouhsd_athletics_teams_get_ID_by_slug($page_slug) {
 };
 
 
+
 global $post;
 $pageBoys = ouhsd_athletics_teams_get_ID_by_slug('athletics/boys-teams');
 $pageGirls = ouhsd_athletics_teams_get_ID_by_slug('athletics/girls-teams');
@@ -97,7 +98,7 @@ add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
 
 include( plugin_dir_path( __FILE__ ) . '/includes/page-generator.php');
 
-include( plugin_dir_path( __FILE__ ) . '/includes/advanced-custom-fields.php');
+include( plugin_dir_path( __FILE__ ) . '/includes/advanced-custom-fields-pro.php');
 
 
 function tl_footer_tabs_responsive_script() {
@@ -193,4 +194,3 @@ function team_page_template( $template ) {
 
 	return $template;
 }
-
